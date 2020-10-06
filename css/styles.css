@@ -1,0 +1,34 @@
+/* this will create the scrolling behavior */
+html {
+  scroll-behavior: smooth;
+}
+.container {
+  margin: -0.4vw;
+}
+
+li {
+  list-style: none;
+  display: inline;
+}
+
+a {
+  text-decoration: none;
+  margin: 0.2vw;
+}
+
+.menu {
+  background-color: lavender;
+  padding: 0.1vw;
+  text-align: center;
+}
+
+h3 {
+  padding-top: 0.3vw;
+  margin-top: 0;
+  margin-left: 0.4vw;
+}
+
+p {
+  margin-left: 0.4vw;
+  margin-bottom: 0;
+}
