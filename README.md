@@ -10,7 +10,7 @@ This project is the second of FEND-Udacity projects, and it includes Javascript.
 
 ## Resources
 
-I had a bug and I used stackoverflow to get some help _find the link below_
+I had two bugs and I used stackoverflow to get some help _find the link below_
 
 [StackOverFlow](https://stackoverflow.com/questions/64221169/functions-fires-regardless-of-the-eventlisteners/64221353?noredirect=1#comment113564632_64221353)
 [StackOverFlow](https://stackoverflow.com/questions/64238843/eventlisteners-dont-function-proparly-because-javascript-returns-object-htmlel/64239601#64239601)
