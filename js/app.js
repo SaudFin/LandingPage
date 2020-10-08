@@ -18,14 +18,15 @@ const activeLink = section => {
 };
 // this function changes the background of the section to show it is the active one
 const activeSection = section => {
-  section.className = "your-active-class";
-  activeLink(section);
+  section.classList.add("your-active-class");
+
+  // activeLink(section);
 };
 
 // this function return the section to its normal status when the user is not viewing it anymore
 const inactiveSection = section => {
-  section.className = "";
-  activeLink(section);
+  section.classList.remove("your-active-class");
+  // activeLink(section);
 };
 
 // this function to be called when navigation links are needed to be created
@@ -34,8 +35,7 @@ const linkCreator = section => {
   let link = document.createElement("a");
   link.className = "menu__link";
   link.textContent = section.id;
-  // to make it look clickable
-  link.href = `#${section.id}`;
+
   link.addEventListener("click", () => {
     section.scrollIntoView(true);
   });
@@ -43,19 +43,32 @@ const linkCreator = section => {
   return point;
 };
 
+// for the scrolling part
+let options = {
+  root: null,
+  rootMargin: "0px",
+  threshold: 0.75
+};
+// to observe the scrolling
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      activeSection(entry.target);
+    } else {
+      inactiveSection(entry.target);
+    }
+  });
+}, options);
+
+// where all the functions are called
 for (let section of sections) {
   section.addEventListener("mouseover", () => {
-    activeSection(section);
+    activeLink(section);
   });
   section.addEventListener("mouseout", () => {
-    inactiveSection(section);
-  });
-  section.addEventListener("touchstart", () => {
-    activeSection(section);
-  });
-  section.addEventListener("touchend", () => {
-    inactiveSection(section);
+    activeLink(section);
   });
 
+  observer.observe(section);
   list.appendChild(linkCreator(section));
 }
