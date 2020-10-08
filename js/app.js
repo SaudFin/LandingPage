@@ -1,6 +1,12 @@
 let sections = document.querySelectorAll("section");
 let list = document.getElementById("navbar__list");
 
+// this part for responsive navigation
+let hamburgerMenu = document.getElementById("hamburger");
+hamburgerMenu.addEventListener("click", () => {
+  list.classList.toggle("show");
+});
+
 // this function to highlight top menu
 const activeLink = section => {
   let links = document.querySelectorAll("a");

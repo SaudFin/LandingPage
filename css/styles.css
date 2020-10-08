@@ -65,6 +65,11 @@ section {
 /* ---- Module Rules ---- */
 
 /* Navigation Styles*/
+nav {
+  display: flex;
+  flex-wrap: wrap;
+}
+
 .navbar__menu ul {
   padding-left: 0;
   margin: 0;
@@ -89,10 +94,41 @@ section {
   transition: ease 0.3s all;
 }
 
+#navbar__list {
+  text-align: left;
+}
 .linkActive {
   background-color: #cccc11;
 }
 
+.hamburger {
+  display: none;
+  background-color: transparent;
+  border: 0;
+  cursor: pointer;
+  color: #333;
+  font-size: 20px;
+}
+
+.hamburger:focus {
+  outline: none;
+}
+
+@media only screen and (max-width: 768px) {
+  #navbar__list {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  #navbar__list.show {
+    display: flex;
+    /* text-align: left;  */
+  }
+  .hamburger {
+    display: block;
+  }
+}
 /* Header Styles */
 .page__header {
   background: #fff;
